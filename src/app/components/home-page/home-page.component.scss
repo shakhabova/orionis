@@ -1,0 +1,110 @@
+:host {
+  max-width: 100vw;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--Primary500, #1c1c1c);
+  background-image: url("/assets/images/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  position: relative;
+  height: 700px;
+  // clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
+}
+.hero-content {
+  margin-left: 104px;
+  max-width: 517px;
+  color: #111;
+  position: relative;
+  top: -100px;
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p {
+  margin: 20px 0;
+  color: #222;
+}
+
+.hero-images {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  top: -104px;
+}
+.coin {
+  position: absolute;
+  width: 200px;
+  height: auto;
+}
+
+.bitcoin {
+  width: 324.822px;
+  height: 321.049px;
+  transform: rotate(24.303deg);
+  top: -79px;
+  left: -239px;
+}
+
+.ethereum {
+  top: 245px;
+  right: 218px;
+  width: 357.783px;
+  height: 347.622px;
+  transform: rotate(84.913deg);
+}
+
+.polygon {
+  width: 270.011px;
+  height: 269.888px;
+  transform: rotate(27.328deg);
+  bottom: 95px;
+  left: 108px;
+}
+
+.avax {
+  bottom: -230px;
+  left: 121px;
+  width: 395.703px;
+  height: 373.285px;
+}
+
+@media only screen and (max-width: 575px) {
+  .hero {
+    padding: 24px 16px;
+    background-image: url("/assets/images/bg-mobile.png");
+    height: 344px;
+  }
+
+  .hero-content {
+    margin-left: 0;
+    top: 0;
+  }
+
+  h1 {
+    font-size: 26px;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .button {
+    margin: 0 auto;
+  }
+
+  .hero-images {
+    display: none;
+  }
+}

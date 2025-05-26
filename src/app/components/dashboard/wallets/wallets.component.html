@@ -1,0 +1,69 @@
+<div class="wallets dashboard-card">
+  <div class="title-wrapper">
+    <h5 class="h5-heading">Wallets</h5>
+
+    @if (wallets().length) {
+      <div class="see-all" (click)="seeAll()">See all</div>
+    }
+  </div>
+
+  @if (wallets().length) {
+    <div class="wallet-list">
+      @if (showPrevBtn()) {
+        <button
+          class="paginator-btn fab default"
+          (click)="currentPage.set(currentPage() - 1)"
+        >
+          <tui-icon icon="@tui.chevron-left"></tui-icon>
+        </button>
+      }
+      @for (wallet of wallets(); track wallet?.id ?? $index) {
+        @if (!wallet) {
+          <div
+            class="create-wallet-card"
+            (click)="createWallet()"
+            [tuiSkeleton]="isLoading()"
+          >
+            <button class="fab">
+              <tui-icon icon="@tui.plus" [style.color]="'#FEDD2D'"></tui-icon>
+            </button>
+            <div class="create-wallet-card-text">Create wallet</div>
+            <div class="text-xs w600">Shortest way</div>
+          </div>
+        } @else {
+          <app-wallet-card
+            [tuiSkeleton]="isLoading()"
+            [wallet]="wallet"
+          ></app-wallet-card>
+        }
+      }
+      @if (showNextStepBtn()) {
+        <button
+          class="paginator-btn fab default"
+          (click)="currentPage.set(currentPage() + 1)"
+        >
+          <tui-icon icon="@tui.chevron-right"></tui-icon>
+        </button>
+      }
+    </div>
+  }
+
+  @if (showEmpty()) {
+    <ng-template #action>
+      <button class="button primary s u-mar-top-24" (click)="createWallet()">
+        Create new wallet
+      </button>
+    </ng-template>
+
+    <app-empty-display
+      text="Simplify exchanging and transferring in the world of cryptocurrency by opening your own wallet."
+      [action]="action"
+    />
+  }
+
+  @if (showError()) {
+    <app-error-display
+      text="Something went wrong while trying to load your wallets."
+    />
+  }
+</div>

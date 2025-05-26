@@ -1,0 +1,56 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  align-items: center;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+
+  app-total-balance,
+  app-wallets {
+    flex: 1;
+  }
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+
+  app-market-info,
+  app-transactions {
+    flex: 1;
+  }
+}
+
+.dashboard-banner {
+  height: 204px;
+  background-image: url("/assets/images/banner.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 575px) {
+  .top-section {
+    flex-direction: column;
+  }
+  .bottom-section {
+    flex-direction: column;
+  }
+
+  .dashboard-banner {
+    background-image: url("/assets/images/banner-mobile.png");
+  }
+}

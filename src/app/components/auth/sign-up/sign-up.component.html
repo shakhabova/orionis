@@ -1,0 +1,174 @@
+<form class="sign-up-form" [formGroup]="formGroup" (submit)="onSubmit()">
+  <h2>Sign up</h2>
+  <div class="form-group">
+    <label tuiLabel class="text-sm w400">
+      First name *
+      <tui-input
+        formControlName="firstName"
+        tuiTextfieldSize="m"
+        [tuiTextfieldLabelOutside]="true"
+      >
+        <input tuiTextfieldLegacy />
+      </tui-input>
+      <tui-error
+        formControlName="firstName"
+        [error]="[] | tuiFieldError | async"
+      >
+      </tui-error>
+    </label>
+
+    <label tuiLabel class="text-sm w400">
+      Last name *
+      <tui-input
+        formControlName="lastName"
+        tuiTextfieldSize="m"
+        [tuiTextfieldLabelOutside]="true"
+      >
+        <input tuiTextfieldLegacy />
+      </tui-input>
+      <tui-error
+        formControlName="lastName"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </label>
+  </div>
+  <label tuiLabel class="text-sm w400">
+    Gender *
+    <tui-select
+      formControlName="gender"
+      tuiTextfieldSize="m"
+      [tuiTextfieldLabelOutside]="true"
+      [valueContent]="genderValueContent"
+    >
+      <input tuiTextfieldLegacy />
+      <tui-data-list-wrapper
+        *tuiDataList
+        [itemContent]="genderValueContent"
+        [items]="genders"
+      />
+      <ng-template #genderValueContent let-gender>
+        {{ genderLabels[toGender(gender)] }}
+      </ng-template>
+    </tui-select>
+  </label>
+
+  <label tuiLabel class="text-sm w400">
+    Phone number *
+    <tui-input-phone-international
+      tuiTextfieldSize="m"
+      formControlName="phoneNumber"
+      [countries]="(phoneCountries | tuiSortCountries | async) || []"
+      countryIsoCode="GB"
+      [tuiTextfieldLabelOutside]="true"
+    >
+    </tui-input-phone-international>
+  </label>
+
+  <label tuiLabel class="text-sm w400">
+    Email *
+    <tui-input
+      formControlName="email"
+      tuiTextfieldSize="m"
+      [tuiTextfieldLabelOutside]="true"
+    >
+      <input tuiTextfieldLegacy />
+    </tui-input>
+
+    <tui-error
+      formControlName="email"
+      [error]="[] | tuiFieldError | async"
+    ></tui-error>
+  </label>
+
+  <label tuiLabel class="text-sm w400">
+    Password *
+    <tui-textfield tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true">
+      <input formControlName="password" tuiInputPassword />
+    </tui-textfield>
+  </label>
+
+  <app-password-criteria
+    [password]="formGroup.get('password')?.getRawValue()"
+  ></app-password-criteria>
+
+  <label tuiLabel class="text-sm w400">
+    Repeat password *
+    <tui-textfield tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true">
+      <input formControlName="repeatPassword" tuiInputPassword />
+    </tui-textfield>
+    <tui-error
+      formControlName="repeatPassword"
+      [error]="[] | tuiFieldError | async"
+    ></tui-error>
+  </label>
+
+  <tui-error
+    [formGroup]="formGroup"
+    [error]="[] | tuiFieldError | async"
+  ></tui-error>
+
+  <label tuiLabel class="text-sm w400">
+    Country *
+    <tui-combo-box
+      tuiTextfieldSize="m"
+      [tuiTextfieldLabelOutside]="true"
+      formControlName="country"
+      [stringify]="stringify"
+    >
+      <tui-data-list-wrapper
+        *tuiDataList
+        [itemContent]="stringify | tuiStringifyContent"
+        [items]="countries | tuiFilterByInput"
+      />
+    </tui-combo-box>
+  </label>
+
+  <label tuiLabel class="text-sm w400">
+    City *
+    <tui-input
+      formControlName="city"
+      tuiTextfieldSize="m"
+      [tuiTextfieldLabelOutside]="true"
+    >
+      <tui-data-list-wrapper *tuiDataList [items]="cities | tuiFilterByInput" />
+    </tui-input>
+
+    <tui-error
+      formControlName="city"
+      [error]="[] | tuiFieldError | async"
+    ></tui-error>
+  </label>
+
+  <label tuiLabel class="text-sm w400">
+    Postal code *
+    <tui-input
+      formControlName="zipCode"
+      tuiTextfieldSize="m"
+      [tuiTextfieldLabelOutside]="true"
+    >
+      <input tuiTextfieldLegacy />
+    </tui-input>
+
+    <tui-error
+      formControlName="zipCode"
+      [error]="[] | tuiFieldError | async"
+    ></tui-error>
+  </label>
+  <label tuiLabel class="text-sm w400">
+    Address
+    <tui-textarea
+      formControlName="address"
+      [expandable]="true"
+      [tuiTextfieldLabelOutside]="true"
+      tuiTextfieldSize="m"
+    >
+    </tui-textarea>
+  </label>
+  <button class="sign-up-btn button primary m" type="submit">Sign up</button>
+  <p class="footer-text text-sm w400">
+    Already have an account?
+    <a routerLink="/auth/login" routerLinkActive="router-link-active"
+      >Sign in</a
+    >
+  </p>
+</form>

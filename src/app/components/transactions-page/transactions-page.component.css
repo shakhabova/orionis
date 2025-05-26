@@ -1,0 +1,139 @@
+:host {
+	max-width: 1128px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	margin-top: 24px;
+	background-color: #fff;
+	padding: 24px;
+	padding-bottom: 16px;
+	border-radius: 10px;
+	min-height: 738px;
+
+	--p-paginator-background: white;
+	--p-paginator-color: black;
+	--p-paginator-border-radius: 0;
+
+	--p-paginator-nav-button-border-radius: 10px;
+	--p-paginator-nav-button-background: #fff;
+	--p-paginator-nav-button-color: #1c1c1c;
+	--p-paginator-nav-button-hover-background: #ededed;
+	--p-paginator-nav-button-hover-color: var(--p-paginator-nav-button-color);
+
+	--p-paginator-nav-button-selected-background: #ededed;
+	--p-paginator-nav-button-selected-color: var(--p-paginator-nav-button-color);
+}
+
+::ng-deep .paginator .p-paginator {
+	border: 1px solid var(--tui-border-normal);
+	border-top: none;
+	justify-content: flex-end;
+}
+
+th[tuiTh] {
+	font: var(--tui-font-h6-heading);
+	color: #272828;
+}
+
+.paginator-button {
+	padding: 8px 12px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+table[tuiTable] {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+thead tr {
+	background-color: #f9f9f9;
+}
+
+tbody tr {
+	background-color: white;
+	cursor: pointer;
+}
+
+td,
+th {
+	border: none;
+	background-color: transparent;
+}
+
+tr {
+	border: 1px solid var(--tui-border-normal);
+	height: 60px;
+}
+
+tbody tr:hover {
+	background-color: #fafafa;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 0;
+	margin-bottom: 24px;
+}
+
+.filters-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 16px;
+}
+
+button.active {
+	background: var(--Secondary500, #fedd2d) !important;
+}
+
+.search-input {
+	width: 500px;
+}
+
+.search-input::before {
+	width: 20px;
+	height: 20px;
+}
+
+.address-wrapper,
+.hash {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	width: 138px;
+}
+
+.copy-icon {
+	cursor: pointer;
+	margin-left: 8px;
+}
+
+.transaction-time {
+	color: #6f6f6f;
+}
+
+.no-height {
+	height: 0px;
+	flex-grow: 0;
+}
+
+tui-loader {
+	color: #f6d52d;
+}
+
+cdk-virtual-scroll-viewport {
+	/* height: calc(100vh - 68px - 66px - 112px - 72px - 48px); */
+	flex-grow: 1;
+	overflow: auto;
+}
+
+@media only screen and (max-width: 575px) {
+	:host {
+		height: calc(var(--tui-viewport-height) - 48px - 74px);
+	}
+}

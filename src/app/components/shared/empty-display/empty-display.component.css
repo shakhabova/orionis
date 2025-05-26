@@ -1,0 +1,16 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+}
+
+.text-sm {
+	color: #6f6f6f;
+}

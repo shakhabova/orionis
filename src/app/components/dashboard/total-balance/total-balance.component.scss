@@ -1,0 +1,107 @@
+.currency-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.currency-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.total-balance {
+  width: 360px;
+  height: 304px;
+
+  h2 {
+    color: var(--Primary-text-color, #272828);
+    /* Switzer/H5 */
+    font-family: Switzer;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 133.333% */
+  }
+
+  .balance {
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+
+    .top-up,
+    .withdraw {
+      width: 134px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--Secondary500, #fedd2d);
+      text-align: center;
+      font-family: Switzer;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px; /* 171.429% */
+      letter-spacing: 0.14px;
+    }
+
+    .top-up {
+      border-radius: var(--Spacing-Radios-Radios-xs, 10px);
+      border: 1px solid var(--Primary500, #1c1c1c);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        var(--Primary500, #1c1c1c);
+      box-shadow:
+        0px -1px 0.5px 1px rgba(0, 0, 0, 0.32) inset,
+        0px 6px 4px -4px rgba(255, 255, 255, 0.32) inset,
+        0px 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
+    }
+
+    .withdraw {
+      border-radius: var(--Spacing-Radios-Radios-xs, 10px);
+      border: 1px solid var(--Primary500, #1c1c1c);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        var(--Primary500, #1c1c1c);
+      box-shadow:
+        0px -1px 0.5px 1px rgba(0, 0, 0, 0.32) inset,
+        0px 6px 4px -4px rgba(255, 255, 255, 0.32) inset,
+        0px 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
+    }
+  }
+}
+
+.block {
+  padding: 16px;
+  border-radius: 8px;
+  border: 0.5px solid var(--System-color-light-gray, #e9e9e9);
+  background: var(--Neutral100, #f7f7fb);
+}
+
+tui-icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media only screen and (max-width: 575px) {
+  .total-balance {
+    width: 100%;
+  }
+}

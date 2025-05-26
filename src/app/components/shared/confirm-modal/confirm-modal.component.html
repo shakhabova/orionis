@@ -1,0 +1,11 @@
+<div class="h5-heading text">
+  {{ context.data.text }}
+</div>
+<div class="u-row-middle u-g-24">
+  <button class="button m secondary" (click)="context.completeWith(false)">
+    No
+  </button>
+  <button class="button m primary" (click)="context.completeWith(true)">
+    Yes
+  </button>
+</div>

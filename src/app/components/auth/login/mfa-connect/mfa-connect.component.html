@@ -1,0 +1,90 @@
+<div class="wrapper">
+  <div class="h4-heading">Two-Factor Authentication (2FA)</div>
+
+  @if (isMobileAppsPage()) {
+    <div class="for-mobile">
+      <div class="subtitle h6-heading tui-space_bottom-16">
+        Use the Google Authenticator app to complete the process.
+      </div>
+
+      <div class="illustration">
+        <img src="assets/2_factor.png" alt="2FA illustration" />
+      </div>
+    </div>
+
+    <div class="for-desktop">
+      <div class="subtitle h6-heading">
+        Scan the QR code and install<br />the Google Authenticator app
+      </div>
+  
+      <div class="mobile-apps-qrs-wrapper">
+        <div class="mobile-app text-m w600">
+          <img src="assets/images/android-mfa-qr.png" class="qr store" />
+          <div class="mobile-app-name">for Android</div>
+        </div>
+  
+        <div class="mobile-app text-m w600">
+          <img src="assets/images/ios-mfa-qr.png" class="qr store" />
+          <div class="mobile-app-name">for IOS</div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="subtitle h6-heading">
+      Scan the QR code with the Google Authenticator<br />app and complete the
+      process.
+    </div>
+
+    <img class="qr mfa-qr" [src]="mfaQR" />
+    <div class="u-row-middle u-mar-top-16 qr-code-text-wrapper">
+      <button class="button secondary s" (click)="copySecret()">Copy secret key</button>
+    </div>
+
+    <label tuiLabel class="u-mar-top-32 u-mar-bottom-48">
+      <input [(ngModel)]="mfaAdded" tuiCheckbox type="checkbox" />
+
+      I have added this account to Google Authenticator.
+    </label>
+  }
+
+  @if (displayNext()) {
+    <button class="button primary m u-mar-top-48" (click)="goNext()">
+      Next
+    </button>
+  }
+
+  @if (!isMobileAppsPage()) {
+    <button
+      class="button secondary m u-mar-bottom-16"
+      [disabled]="!mfaAdded()"
+      [class.primary]="mfaAdded()"
+      [class.secondary]="!mfaAdded()"
+      (click)="done()"
+    >
+      Done
+    </button>
+  }
+
+  @if (displayBack()) {
+    <button class="button secondary m" (click)="goBack()">Back</button>
+  }
+
+  @if (isMobileAppsPage()) {
+    <div class="for-mobile">
+      <div
+        class="test-m-400 mobile-links-subtitle tui-space_top-6 tui-space_bottom-4"
+      >
+        Don't you have an app?
+      </div>
+
+      <div class="links">
+        <a href="https://apps.apple.com/us/app/google-authenticator/id388497605" target="_blank">
+          <img class="store-download" src="assets/images/ios-store-download.png" />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en&gl=US" target="_blank">
+          <img class="store-download" src="assets/images/android-store-download.png" />
+        </a>
+      </div>
+    </div>
+  }
+</div>

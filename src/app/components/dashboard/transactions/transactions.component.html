@@ -1,0 +1,39 @@
+<div class="transactions dashboard-card">
+  <div class="u-row-middle u-space-between tui-space_bottom-6">
+    <div class="h5-heading">Transactions</div>
+
+    @if (daysGroups.length) {
+      <div class="see-all" routerLink="/transactions">See all</div>
+    }
+  </div>
+
+  <div style="overflow-y: auto">
+    @for (group of daysGroups; track $index) {
+      <div class="text-m w600 day-group-title">{{ group.title }}</div>
+
+      @for (item of group.items; track item.id) {
+        <app-transaction-item [transaction]="item"></app-transaction-item>
+
+        @if (!$last) {
+          <div class="line"></div>
+        }
+      }
+    }
+  </div>
+
+  @if (displayEmpty()) {
+    <app-empty-display
+      text="No transactions in your history? Your transaction history can be made today."
+    />
+  }
+
+  @if (displayError()) {
+    <app-error-display
+      text="Something went wrong while trying to load your transaction."
+    />
+  }
+</div>
+
+@if (loading()) {
+  <app-loader />
+}

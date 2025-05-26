@@ -1,0 +1,29 @@
+.market-info {
+	width: 360px;
+	height: 448px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.market-info .title {
+	margin-bottom: 28px;
+	margin-top: 0;
+}
+
+.siz {
+	width: 260px;
+	height: 1px;
+	background-color: #f7f7fb;
+	align-self: flex-end;
+
+	margin-top: 12px;
+	margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 575px) {
+	.market-info {
+		width: 100%;
+		height: unset;
+	}
+}

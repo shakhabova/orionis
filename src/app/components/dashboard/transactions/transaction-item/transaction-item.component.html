@@ -1,0 +1,15 @@
+<div class="left-side">
+  <app-transaction-type-icon [type]="transaction().type" />
+
+  <div class="info-wrapper">
+    <div class="h5-heading">{{ transaction().type }}</div>
+    <div class="text-m w600 time">
+      {{ transaction().createdAt | date: "hh:mm" }}
+    </div>
+    <app-transaction-status-chip [status]="transaction().oprStatus" />
+  </div>
+</div>
+<div class="trasactions" style=""></div>
+<div class="right-side">
+  {{ amount() }}
+</div>

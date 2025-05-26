@@ -1,0 +1,15 @@
+.label {
+	color: #6f6f6f;
+}
+
+.border-dashed-bottom {
+	border-bottom: 1px dashed #eceaef;
+}
+
+.button {
+	flex: 1;
+}
+
+.h4-heading {
+	text-align: center;
+}

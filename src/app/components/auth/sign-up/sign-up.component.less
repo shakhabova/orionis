@@ -1,0 +1,97 @@
+@import "@taiga-ui/core/styles/taiga-ui-local.less";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  max-width: 456px;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  .scrollbar-hidden();
+  height: 200px;
+}
+
+label {
+  color: var(--Secondary-text-color, #6f6f6f);
+  margin-top: 24px;
+}
+
+// label > *:first-child {
+//   margin-top: 4px;
+// }
+
+.sign-up-form h2 {
+  margin-bottom: 24px;
+  font-size: 28px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 24px;
+}
+
+.form-group label {
+  flex: 1 1 0;
+}
+
+/* .form-group input, 
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+} */
+
+.phone-input {
+  display: flex;
+  gap: 24px;
+}
+
+.phone-input tui-select {
+  width: 216px;
+}
+
+.phone-input tui-input {
+  flex-grow: 1;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+tui-textarea {
+  min-height: 2rem;
+}
+
+.sign-up-btn {
+  width: 100%;
+  margin-top: 48px;
+}
+
+.sign-up-btn:hover {
+  background-color: #444;
+}
+
+.sign-up-form p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.sign-up-form p a {
+  color: #000;
+  text-decoration: none;
+}
+
+.sign-up-form p a:hover {
+  text-decoration: underline;
+}
+
+.footer-text {
+  color: var(--secondary-text-color);
+}

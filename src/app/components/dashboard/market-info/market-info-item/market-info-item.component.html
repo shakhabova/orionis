@@ -1,0 +1,18 @@
+<div class="left-side">
+  <img [src]="cryptoIcon() | async" alt="Crypto Icon" />
+  <div class="name-wrapper">
+    <div class="h5-heading">{{ shortName() }}</div>
+    <div class="text-sm w400 subtitle">{{ fullName() | async }}</div>
+  </div>
+</div>
+
+<div class="right-side">
+  <div class="h5-heading" [tuiSkeleton]="loading() && 3">
+    {{ balance() | currency: currentCurrency() : "" }}
+    {{ loading() ? "" : currentCurrency() }}
+  </div>
+
+  <div class="text-sm w400 subtitle rate" [tuiSkeleton]="loading() && 3">
+    {{ rate() }}
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="h4-heading u-mar-bottom-32">Total balance</div>
+
+<div class="currencies-list-container" [class.is-loading]="isLoading()">
+  <div
+    class="currency-item"
+    [class.active]="selected() === 'EUR'"
+    (click)="selected.set('EUR')"
+  >
+    <img
+      src="assets/icons/euro.svg"
+      alt="EUR currency icon"
+      class="currency-icon"
+    />
+
+    <div class="currency-balance text-m w600">
+      {{ balances().EUR | currency: "EUR" : "" : ".0-6" }} EUR
+    </div>
+
+    <img class="active-mark" [src]="radioIcons.get(selected() === 'EUR')" />
+  </div>
+
+  <div
+    class="currency-item"
+    [class.active]="selected() === 'GBP'"
+    (click)="selected.set('GBP')"
+  >
+    <img
+      src="assets/icons/gbp.svg"
+      alt="GBP currency icon"
+      class="currency-icon"
+    />
+
+    <div class="currency-balance text-m w600">
+      {{ balances().GBP | currency: "GBP" : "" : ".0-6" }} GBP
+    </div>
+
+    <img class="active-mark" [src]="radioIcons.get(selected() === 'GBP')" />
+  </div>
+</div>
+
+<button class="button primary m" (click)="choose()" [disabled]="isLoading()">
+  Choose
+</button>

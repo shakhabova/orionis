@@ -1,0 +1,22 @@
+<svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 270988744">
+<rect width="90" height="90" rx="45" fill="white"/>
+<g id="Group 48095604">
+<mask id="mask0_1520_18339" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="14" y="14" width="61" height="61">
+<path id="MASK" fill-rule="evenodd" clip-rule="evenodd" d="M45.2576 14.3875C28.6926 14.042 14.984 27.1905 14.6386 43.7554C14.2931 60.3204 27.4416 74.029 44.0065 74.3744C60.5715 74.7199 74.2801 61.5714 74.6255 45.0065C74.971 28.4415 61.8225 14.733 45.2576 14.3875ZM45.003 26.6024C35.1841 26.3977 27.0583 34.1914 26.8536 44.0103C26.6488 53.8292 34.4426 61.955 44.2614 62.1597C54.0803 62.3645 62.2061 54.5707 62.4109 44.7519C62.6156 34.933 54.8219 26.8072 45.003 26.6024Z" fill="#CB202D"/>
+</mask>
+<g mask="url(#mask0_1520_18339)">
+<g id="LODING">
+<rect id="Rectangle 1" x="73.084" y="6.92329" width="66.5245" height="66.5245" transform="rotate(82.2048 73.084 6.92329)" fill="url(#paint0_angular_1520_18339)"/>
+<ellipse id="Ellipse 3" cx="20.9662" cy="47.6532" rx="6.17271" ry="6.17271" transform="rotate(82.2048 20.9662 47.6532)" fill="#1C1C1C"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_angular_1520_18339" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(106.346 40.1855) rotate(90) scale(33.2623 33.2623)">
+<stop stop-color="#1C1C1C"/>
+<stop offset="1" stop-color="#FEDD2D" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

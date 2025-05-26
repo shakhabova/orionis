@@ -1,0 +1,34 @@
+:host {
+	display: block;
+}
+
+.otp-inputs {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.otp-inputs input {
+	text-align: center;
+	max-width: 49px;
+	min-width: 36px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--Spacing-Radios-Radios-xs, 10px);
+	border: 1px solid var(--System-color-light-purple, #eceaef);
+	background: var(--Neutral100, #f7f7fb);
+}
+
+.otp-inputs input.input-error {
+	border-radius: var(--Spacing-Radios-Radios-xs, 10px);
+	border: 1px solid var(--System-color-red, #e7170b);
+	background: var(--System-color-light-red, #fff0f0);
+}
+
+/* @media only screen and (max-width: 575px) {
+  .otp-inputs input {
+    width: 36px;
+  }
+} */

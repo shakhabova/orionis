@@ -1,0 +1,146 @@
+.footer {
+  background-color: var(--Primary500, #1c1c1c);
+  color: #fff;
+  text-align: center;
+  border-top: 1px solid #fedd2d;
+  padding: 60px;
+  padding-bottom: 48px;
+  padding-top: 104px;
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+
+  /* Left Section */
+  .footer-left {
+    text-align: left;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+
+      img {
+        width: 150px;
+        height: auto;
+      }
+    }
+
+    p {
+      color: white;
+    }
+  }
+
+  /* Center Section: Navigation Links */
+  .footer-center {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin: 5px 0;
+        text-align: left;
+      }
+
+      li + li {
+        margin-top: 24px;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+
+        &:hover {
+          color: #fedd2d;
+        }
+      }
+    }
+  }
+
+  /* Right Section: Social Icons */
+  .footer-right {
+    display: flex;
+    gap: 15px;
+
+    a {
+      color: #fff;
+      font-size: 1.2rem;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        color: #fedd2d;
+      }
+    }
+  }
+
+  /* Bottom Section */
+  .footer-bottom {
+    font-size: 0.9rem;
+    color: #ccc;
+
+    max-width: 1360px;
+    margin: 0 auto;
+    margin-top: 48px;
+
+    hr {
+      border: 1px solid #fedd2d;
+    }
+
+    .footer-bottom-text {
+      margin-top: 48px;
+      margin-bottom: 0;
+      color: white;
+    }
+  }
+}
+
+.email {
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    color: #fedd2d;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    margin-bottom: 20px;
+  }
+
+  .footer-left {
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer {
+    padding: 40px 16px;
+  }
+
+  .address {
+    width: 265px;
+  }
+
+  .footer-right {
+    justify-content: flex-start;
+  }
+}

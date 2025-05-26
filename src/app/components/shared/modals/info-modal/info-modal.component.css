@@ -1,0 +1,22 @@
+.icon {
+	text-align: center;
+	margin-bottom: 24px;
+}
+
+.title {
+	margin-bottom: 8px;
+	text-align: center;
+}
+
+.text {
+	color: #6f6f6f;
+}
+
+.button {
+	width: 100%;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+}

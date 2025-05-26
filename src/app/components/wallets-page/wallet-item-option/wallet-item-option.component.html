@@ -1,0 +1,53 @@
+@if (wallet().walletStatus !== "DEACTIVATED") {
+  <button
+    class="more-button"
+    appearance="secondary-grayscale"
+    iconStart="@tui.ellipsis-vertical"
+    [size]="moreIconSize()"
+    tuiIconButton
+    type="button"
+    [style.border-radius.%]="100"
+    [tuiAppearanceState]="open ? 'active' : null"
+    [tuiDropdown]="dropdown"
+    [tuiDropdownSided]="true"
+    [(tuiDropdownOpen)]="open"
+    (click)="$event.stopPropagation()"
+  >
+    More
+  </button>
+}
+<ng-template #dropdown let-close>
+  <tui-data-list>
+    @if (wallet().walletStatus === "ACTIVE") {
+      <button
+        tuiOption
+        type="button"
+        (click)="blockWallet(); close()"
+        class="wallet-option"
+      >
+        <tui-icon icon="@tui.lock-keyhole"></tui-icon>
+        Block wallet
+      </button>
+    } @else if (wallet().walletStatus === "CUSTOMER_BLOCKED") {
+      <button
+        tuiOption
+        type="button"
+        (click)="unblockWallet(); close()"
+        class="wallet-option"
+      >
+        <tui-icon icon="@tui.lock-keyhole-open"></tui-icon>
+        Unblock wallet
+      </button>
+    }
+
+    <button
+      tuiOption
+      type="button"
+      (click)="deactivateWallet(); close()"
+      class="wallet-option"
+    >
+      <tui-icon icon="@tui.ban"></tui-icon>
+      Deactivate wallet
+    </button>
+  </tui-data-list>
+</ng-template>

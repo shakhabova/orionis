@@ -1,0 +1,38 @@
+.wallet-container {
+	display: flex;
+	flex-direction: column;
+	width: 162px;
+	height: 200px;
+	border-radius: 8px;
+	border: 0.5px solid var(--System-color-light-gray, #e9e9e9);
+	background: var(--Neutral100, #f7f7fb);
+
+	padding: 16px 8px 16px 16px;
+}
+
+.wallet-container.is-blocked {
+	background: var(--System-color-light-red, #fff0f0);
+}
+
+.title-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.crypto-icon {
+	width: 40px;
+	height: 40px;
+}
+
+.crypto-name {
+	margin-top: 12px;
+}
+
+.crypto-balance {
+	color: var(--Secondary-text-color, #6f6f6f);
+}
+
+.cryptocurrency {
+	color: var(--Secondary-text-color, #6f6f6f);
+}

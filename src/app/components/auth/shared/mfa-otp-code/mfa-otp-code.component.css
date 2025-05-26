@@ -1,0 +1,43 @@
+:host {
+	width: 376px;
+}
+
+app-otp-code-input {
+	margin: 32px 0;
+}
+
+.message {
+	width: 376px;
+	margin: 0 auto;
+	text-align: center;
+
+	border-radius: 100px;
+	border: 0.5px solid var(--System-color-yellow, #f6d523);
+	background: var(--System-color-light-yellow, #fffadf);
+
+	color: var(--Primary-text-color, #272828);
+	/* text-sm-400 */
+	font-family: "Nunito Sans", sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 21px;
+}
+
+.message.error {
+	border: 0.5px solid var(--System-color-red, #d43a31);
+	background: var(--System-color-light-red, #fff0f0);
+}
+
+.subtitle,
+.hint {
+	color: #6f6f6f;
+}
+
+.recover-btn {
+	margin: 0 auto;
+	text-decoration: none;
+	color: #1c1c1c;
+	background: transparent;
+	border: none;
+}

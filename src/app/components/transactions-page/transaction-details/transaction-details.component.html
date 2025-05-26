@@ -1,0 +1,132 @@
+<div class="h4-heading u-mar-bottom-32">Transaction details</div>
+
+<div class="screenshot-wrapper" [class.is-taking]="screenshotIsTaking()">
+  <div class="type-icon" [class.in]="!isOutTransaction()">
+    <img src="/assets/icons/arrow.svg" />
+  </div>
+
+  @if (isOutTransaction()) {
+    <div class="u-text-center">
+      -{{ transaction().amountInSenderCurrency }}
+      {{ transaction().currencyFrom }}
+    </div>
+  } @else {
+    <div class="u-text-center">
+      +{{ transaction().amount }} {{ transaction().currencyTo }}
+    </div>
+  }
+
+  <div class="details-row">
+    <div class="text-m w600">Status</div>
+    <app-transaction-status-chip
+      [status]="transaction().oprStatus"
+    ></app-transaction-status-chip>
+  </div>
+  <div class="details-row">
+    <div class="text-m w600">From wallet</div>
+    <div class="u-row-middle">
+      @if (fromScanWalletUrl()) {
+        <a
+          class="address text-m w600"
+          [href]="fromTrxAddressUrl()"
+          target="_blank"
+        >
+          {{ transaction().fromTrxAddress }}
+        </a>
+      } @else {
+        <div class="address text-m w600">
+          {{ transaction().fromTrxAddress }}
+        </div>
+      }
+
+      @if (!screenshotIsTaking()) {
+        <app-copy-icon [text]="transaction().fromTrxAddress"></app-copy-icon>
+      }
+    </div>
+  </div>
+
+  @if (displayToWallet()) {
+    <div class="details-row">
+      <div class="text-m w600">To wallet</div>
+      <div class="u-row-middle">
+        @if (toScanWalletUrl()) {
+          <a
+            class="address text-m w600"
+            [href]="toTrxAddressUrl()"
+            target="_blank"
+          >
+            {{ transaction().toTrxAddress }}
+          </a>
+        } @else {
+          <div class="address text-m w600">
+            {{ transaction().toTrxAddress }}
+          </div>
+        }
+        @if (!screenshotIsTaking()) {
+          <app-copy-icon [text]="transaction().toTrxAddress"></app-copy-icon>
+        }
+      </div>
+    </div>
+  }
+
+  <div class="details-row">
+    <div class="text-m w600">Transaction hash</div>
+    <div class="u-row-middle text-m w600">
+      @if (scanUrl()) {
+        <a
+          class="address text-m w600"
+          [href]="transactionHashAddress()"
+          target="_blank"
+        >
+          {{ transaction().transactionHash }}
+        </a>
+      } @else {
+        <div class="address text-m w600">
+          {{ transaction().transactionHash }}
+        </div>
+      }
+      @if (!screenshotIsTaking()) {
+        <app-copy-icon [text]="transaction().transactionHash"></app-copy-icon>
+      }
+    </div>
+  </div>
+  <div class="details-row">
+    <div class="text-m w600">Transaction ID</div>
+    <div class="text-m w600">
+      {{ transaction().id }}
+    </div>
+  </div>
+  <div class="details-row">
+    <div class="text-m w600">Sending amount</div>
+    <div class="text-m w600">
+      -{{ transaction().amountInSenderCurrency }}
+      {{ transaction().currencyFrom }}
+    </div>
+  </div>
+  <div class="details-row">
+    <div class="text-m w600">Recieving amount</div>
+    <div class="text-m w600">
+      +{{ transaction().amount }} {{ transaction().currencyTo }}
+    </div>
+  </div>
+  <div class="details-row">
+    <div class="text-m w600">Transaction date</div>
+    <div class="text-m w600">{{ transaction().createdAt | date }}</div>
+  </div>
+</div>
+
+<div class="actions">
+  <button class="button m primary" (click)="download()">
+    <tui-icon icon="@tui.download"></tui-icon>
+    Download
+  </button>
+
+  <!-- <button class="button m secondary u-mar-top-16" (click)="share()">
+    <tui-icon icon="@tui.share"></tui-icon>
+    Share
+  </button> -->
+</div>
+
+<!-- <div class="loader-wrapper">
+  <img src="/assets/icons/loader.svg" />
+</div> -->

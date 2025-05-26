@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://crypto-api-dev.guavapay.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

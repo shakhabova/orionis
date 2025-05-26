@@ -1,0 +1,169 @@
+<div class="header">
+  <div class="h3-heading">Wallets</div>
+
+  @if (configService.isMobile()) {
+    <button class="button s primary add-btn" (click)="createWallet()">
+      <tui-icon icon="@tui.plus"></tui-icon>
+      Create wallet
+    </button>
+  }
+
+  <div class="header-actions">
+    <tui-combo-box
+      [(ngModel)]="selectedCurrency"
+      tuiTextfieldSize="m"
+      class="crypto-select"
+      [tuiTextfieldLabelOutside]="true"
+      [valueContent]="content"
+      [tuiTextfieldCleaner]="true"
+      [stringify]="stringifyCryptoSelectItem"
+    >
+      Cryptocurrency
+      <input placeholder="Type a crypto" tuiTextfieldLegacy />
+      <tui-data-list-wrapper
+        *tuiDataList
+        size="m"
+        [itemContent]="content"
+        [items]="cryptocurrencies() | tuiFilterByInput: currencyMatcher"
+      />
+
+      <ng-template #content let-data>
+        <div class="u-row-middle u-g-8">
+          <img [src]="getCryptoIcon(data?.cryptoCurrency) | async" width="24" />
+          <div class="text-m w400">{{ data?.cryptoCurrencyName }}</div>
+        </div>
+      </ng-template>
+    </tui-combo-box>
+
+    @if (!configService.isMobile()) {
+      <button class="button primary m" (click)="createWallet()">
+        <tui-icon icon="@tui.plus"></tui-icon>
+        Create wallet
+      </button>
+    }
+  </div>
+</div>
+@if (!configService.isMobile() && wallets().length) {
+  <table tuiTable [columns]="columns">
+    <thead>
+      <tr tuiThGroup>
+        <th tuiTh>Address</th>
+        <th tuiTh>Balance</th>
+        <th tuiTh>Status</th>
+        <th tuiTh></th>
+      </tr>
+    </thead>
+
+    <tbody tuiTbody [data]="wallets()">
+      @for (wallet of wallets(); track wallet.id) {
+        <tr tuiTr (click)="openDetails(wallet)">
+          <td *tuiCell="'trxAddress'" tuiTd class="text-m w600">
+            <div class="u-row-middle">
+              <div class="text-m w600 address-wrapper">
+                {{ wallet.trxAddress }}
+              </div>
+              <app-copy-icon [text]="wallet.trxAddress" />
+            </div>
+          </td>
+
+          <td *tuiCell="'availableOprBalance'" tuiTd class="text-m w600">
+            <div class="u-row-middle u-g-12">
+              {{ wallet.availableOprBalance }}
+              <img
+                [src]="getCryptoIcon(wallet.cryptocurrency) | async"
+                width="24"
+              />
+            </div>
+          </td>
+
+          <td *tuiCell="'walletStatus'" tuiTd>
+            <app-wallet-status-chip
+              [status]="wallet.walletStatus"
+            ></app-wallet-status-chip>
+          </td>
+
+          <td *tuiCell="'actions'" tuiTd>
+            <app-wallet-item-option
+              [wallet]="wallet"
+              (block)="onBlock(wallet)"
+              (unblock)="onUnblock(wallet)"
+              (deactivate)="onDeactivate(wallet)"
+            />
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <p-paginator
+    class="paginator"
+    [totalRecords]="totalElements()"
+    [rows]="pageSize"
+    (onPageChange)="onPageChange($event)"
+    [showFirstLastIcon]="false"
+    [showPageLinks]="true"
+  >
+    <ng-template #previouspagelinkicon>
+      <span class="paginator-button">
+        <tui-icon icon="@tui.chevron-left"></tui-icon>
+        Back
+      </span>
+    </ng-template>
+
+    <ng-template #nextpagelinkicon>
+      <span class="paginator-button">
+        Next
+        <tui-icon icon="@tui.chevron-right"></tui-icon>
+      </span>
+    </ng-template>
+  </p-paginator>
+
+  @if (isEmpty()) {
+    <app-empty-display
+      text="Simplify exchanging and transferring in the world of cryptocurrency by opening your own wallet."
+    ></app-empty-display>
+  }
+
+  @if (hasError()) {
+    <app-error-display
+      text="Something went wrong while trying to load your wallets."
+    />
+  }
+} @else if (this.configService.isMobile()) {
+  @let mobileWallets = mobileWallets$ | async;
+  <cdk-virtual-scroll-viewport
+    #scrollViewport
+    itemSize="168"
+    [class.no-height]="
+      (isMobileEmpty() && !mobileWallets?.length) || hasMobileError()
+    "
+  >
+    <app-wallet-info-card
+      *cdkVirtualFor="let wallet of mobileWallets; trackBy: trackById"
+      [wallet]="wallet"
+      (click)="navigateDetails(wallet)"
+      (block)="onBlock(wallet)"
+      (unblock)="onUnblock(wallet)"
+      (deactivate)="onDeactivate(wallet)"
+    />
+  </cdk-virtual-scroll-viewport>
+
+  <tui-loader
+    [showLoader]="isMobileLoading() && !!mobileWallets?.length"
+    [inheritColor]="true"
+  ></tui-loader>
+
+  @if (isMobileEmpty() && !mobileWallets?.length) {
+    <app-empty-display
+      text="Simplify exchanging and transferring in the world of cryptocurrency by opening your own wallet."
+    ></app-empty-display>
+  }
+
+  @if (hasMobileError()) {
+    <app-error-display
+      text="Something went wrong while trying to load your wallets."
+    />
+  }
+}
+@if (isLoading()) {
+  <app-loader></app-loader>
+}

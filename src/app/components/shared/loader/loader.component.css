@@ -1,0 +1,10 @@
+tui-loader {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #fdc525;
+}
+
+tui-loader > * {
+	color: var(--Primary-text-color, #272828);
+}

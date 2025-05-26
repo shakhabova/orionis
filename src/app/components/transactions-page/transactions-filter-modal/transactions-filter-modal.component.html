@@ -1,0 +1,61 @@
+<div class="h4-heading u-mar-bottom-32">Filter</div>
+
+<ng-container [formGroup]="formGroup">
+  <div class="u-row-middle u-g-24 u-mar-bottom-24">
+    <tui-input-date
+      formControlName="dateFrom"
+      class="u-flex-grow-1"
+      tuiTextfieldSize="m"
+    >
+      From
+    </tui-input-date>
+
+    <tui-input-date
+      formControlName="dateTo"
+      class="u-flex-grow-1"
+      tuiTextfieldSize="m"
+    >
+      To
+    </tui-input-date>
+  </div>
+
+  <tui-combo-box
+    formControlName="cryptocurrency"
+    tuiTextfieldSize="m"
+    class="crypto-select u-mar-bottom-24"
+    [tuiTextfieldLabelOutside]="true"
+    [valueContent]="content"
+    [tuiTextfieldCleaner]="true"
+    [stringify]="stringifyCryptoSelectItem"
+  >
+    Cryptocurrency
+    <input placeholder="Type a crypto" tuiTextfieldLegacy />
+    <tui-data-list-wrapper
+      *tuiDataList
+      size="m"
+      [itemContent]="content"
+      [items]="cryptocurrencies() | tuiFilterByInput: currencyMatcher"
+    />
+
+    <ng-template #content let-data>
+      <div class="u-row-middle u-g-8">
+        <img [src]="getCryptoIcon(data?.cryptoCurrency) | async" width="24" />
+        <div class="text-m w400">{{ data?.cryptoCurrencyName }}</div>
+      </div>
+    </ng-template>
+  </tui-combo-box>
+
+  <tui-select tuiTextfieldSize="m" formControlName="statuses">
+    Status
+    <input placeholder="Status" tuiTextfieldLegacy />
+    <tui-data-list-wrapper *tuiDataList [items]="statuses" />
+  </tui-select>
+  <button
+    class="button primary m u-mar-top-32 u-mar-bottom-16"
+    (click)="onApply()"
+    [disabled]="formGroup.pristine"
+  >
+    Apply
+  </button>
+  <button class="button secondary m" (click)="onClear()">Clear</button>
+</ng-container>

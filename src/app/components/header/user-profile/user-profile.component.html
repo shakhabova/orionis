@@ -1,0 +1,53 @@
+<div class="h4-heading u-mar-bottom-32">User profile</div>
+<label class="text-sm w400" for="name">Name</label>
+<tui-input
+  [(ngModel)]="name"
+  tuiTextfieldSize="m"
+  [tuiTextfieldLabelOutside]="true"
+  class="u-mar-bottom-24"
+  disabled
+>
+  <input id="name" tuiTextfieldLegacy />
+</tui-input>
+<label class="text-sm w400" for="email">Email address</label>
+<tui-input
+  [(ngModel)]="email"
+  tuiTextfieldSize="m"
+  [tuiTextfieldLabelOutside]="true"
+  class="u-mar-bottom-24"
+  disabled
+>
+  <input id="email" tuiTextfieldLegacy type="email" inputmode="email" />
+</tui-input>
+<label class="text-sm w400" for="phone">Phone number</label>
+<tui-input
+  [(ngModel)]="phone"
+  tuiTextfieldSize="m"
+  [tuiTextfieldLabelOutside]="true"
+  class="u-mar-bottom-24"
+  disabled
+>
+  <input id="phone" tuiTextfieldLegacy type="phone" inputmode="phone" />
+</tui-input>
+<div class="u-row-middle u-g-12">
+  <label class="text-m w600">Google Authenticator</label>
+  <input
+    tuiSwitch
+    type="checkbox"
+    [(ngModel)]="googleAuth"
+    (ngModelChange)="googleAuthChanged()"
+    [showIcons]="false"
+  />
+</div>
+<button class="primary m button u-mar-top-24" (click)="changePassword()">
+  Change password
+</button>
+<button class="secondary m button u-mar-top-16" (click)="logOut()">
+  <tui-icon
+    icon="@tui.log-out"
+    [style.width.px]="20"
+    [style.height.px]="20"
+    [style.color]="'red'"
+  />
+  Logout
+</button>

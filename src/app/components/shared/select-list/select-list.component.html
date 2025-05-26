@@ -1,0 +1,22 @@
+<div class="select-list">
+  @for (item of items(); track $index) {
+    <div
+      class="item"
+      [class.active]="selected() === item"
+      (click)="selected.set(item)"
+    >
+      <!-- <img class="crypto-icon" [src]="getCryptoIcon(crypto?.cryptoCurrency) | async" />
+
+      <div class="crypto-name-wrapper">
+        <div class="text-m w600">{{ crypto?.cryptoCurrencyName }}</div>
+        <div class="text-xs w400">{{ crypto?.shortName }}</div>
+      </div> -->
+
+      <ng-container
+        *ngTemplateOutlet="valueTemp(); context: { $implicit: item }"
+      ></ng-container>
+
+      <img class="active-mark" [src]="radioIcons.get(selected() === item)" />
+    </div>
+  }
+</div>

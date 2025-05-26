@@ -1,0 +1,43 @@
+@if (loading()) {
+  <app-loader></app-loader>
+}
+<div class="h4-heading title">Sign in</div>
+<div class="h4-heading mobile-title">Login to dashboard</div>
+<form (submit)="onSubmit()" [formGroup]="formGroup" class="form-group">
+  <label tuiLabel class="tui-space_bottom-6">
+    Email *
+    <tui-input
+      formControlName="email"
+      tuiTextfieldSize="m"
+      [tuiTextfieldLabelOutside]="true"
+    >
+      <input tuiTextfieldLegacy />
+    </tui-input>
+
+    <tui-error
+      formControlName="email"
+      [error]="[] | tuiFieldError | async"
+    ></tui-error>
+  </label>
+
+  <label tuiLabel>
+    Password *
+    <tui-textfield tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true">
+      <input formControlName="password" tuiInputPassword />
+    </tui-textfield>
+  </label>
+
+  <a class="forget-password text-xs w600 tui-space_top-1" routerLink="/auth/forget-password"
+    >Forgot password</a
+  >
+
+  <button type="submit" class="sign-in-btn">Sign in</button>
+</form>
+<div class="form-footer text-sm w400">
+  <p>Don't you have an account? <a routerLink="/auth/sign-up">Sign up</a></p>
+</div>
+<div class="divider"></div>
+<div class="terms text-xs w400 u-mar-bottom-16">
+  <p>By signing up, you agree to Coinforge's <a href="#">Privacy Policy</a>.</p>
+</div>
+

@@ -1,0 +1,29 @@
+<div
+  class="wallet-container"
+  [class.is-blocked]="wallet().walletStatus === 'CUSTOMER_BLOCKED'"
+>
+  <div class="title-wrapper">
+    <img [src]="cryptoIcon() | async" class="crypto-icon" />
+    <div class="crypto-name text-l w600">{{ cryptoName() | async }}</div>
+
+    <app-wallet-status-chip
+      [status]="wallet().walletStatus"
+    ></app-wallet-status-chip>
+
+    <app-wallet-item-option
+      [wallet]="wallet()"
+      (block)="onBlock()"
+      (unblock)="onUnblock()"
+      (deactivate)="onDeactivate()"
+    ></app-wallet-item-option>
+  </div>
+
+  <div class="crypto-balance text-l w600">
+    {{ wallet().availableOprBalance | number }} {{ wallet().cryptocurrency }}
+  </div>
+
+  <div class="address-wrapper">
+    <div class="wallet-address text-m w600">{{ wallet().trxAddress }}</div>
+    <app-copy-icon [text]="wallet().trxAddress" />
+  </div>
+</div>

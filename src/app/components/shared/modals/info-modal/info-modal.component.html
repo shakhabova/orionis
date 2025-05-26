@@ -1,0 +1,29 @@
+<div class="icon">
+  @switch (context.data.type) {
+    @case ("success") {
+      <img src="assets/icons/success.svg" />
+    }
+    @case ("warning") {
+      <img src="assets/icons/warning-v2.png" alt="warning" />
+    }
+    @case ("pending") {
+      <img src="assets/icons/pending.svg" alt="Pending" />
+    }
+    @case ("error") {
+      <img src="assets/icons/error.svg" alt="Error" />
+    }
+    @case ("empty") {
+      <img src="assets/icons/empty-icon.png" alt="Empty" />
+    }
+  }
+</div>
+
+<div class="title h4-heading">{{ context.data.title }}</div>
+
+@if (context.data.text) {
+  <div class="text text-sm w400 u-mar-bottom-24 {{context.data.textClasses}}" [innerHTML]="context.data.text"></div>
+}
+
+<button class="button primary m" (click)="context.completeWith()">
+  {{ context.data.buttonText || "Close" }}
+</button>

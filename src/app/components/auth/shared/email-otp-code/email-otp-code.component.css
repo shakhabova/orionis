@@ -1,0 +1,50 @@
+app-otp-code-input {
+	margin: 32px 0;
+}
+
+.message {
+	width: 376px;
+	margin: 0 auto;
+	text-align: center;
+
+	border-radius: 100px;
+	border: 0.5px solid var(--System-color-yellow, #f6d523);
+	background: var(--System-color-light-yellow, #fffadf);
+
+	color: var(--Primary-text-color, #272828);
+	/* text-sm-400 */
+	font-family: "Nunito Sans", sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 21px;
+}
+
+.message.error {
+	border: 0.5px solid var(--System-color-red, #d43a31);
+	background: var(--System-color-light-red, #fff0f0);
+}
+
+.button {
+	width: 100%;
+	margin: 16px 0;
+}
+
+.resend-link {
+	margin-bottom: 0;
+}
+
+.expires {
+	color: var(--Secondary-text-color, #6f6f6f);
+	text-align: center;
+	/* text-sm-400 */
+	font-family: "Nunito Sans", sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 21px;
+}
+
+.expires .time {
+	color: var(--Primary500, #1c1c1c);
+}

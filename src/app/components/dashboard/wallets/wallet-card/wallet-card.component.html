@@ -1,0 +1,21 @@
+<div
+  class="wallet-container"
+  [class.is-blocked]="wallet().walletStatus === 'CUSTOMER_BLOCKED'"
+>
+  <div class="title-wrapper">
+    <img [src]="cryptoIcon() | async" class="crypto-icon" />
+
+    <app-wallet-status-chip
+      [status]="wallet().walletStatus"
+    ></app-wallet-status-chip>
+  </div>
+
+  <div class="crypto-name text-l w600">{{ cryptoName() | async }}</div>
+
+  <div class="u-flex-grow-1"></div>
+
+  <div class="crypto-balance text-m w600">
+    {{ wallet().oprBalance | number }}
+  </div>
+  <div class="cryptocurrency text-m w600">{{ wallet().cryptocurrency }}</div>
+</div>

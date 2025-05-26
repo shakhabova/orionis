@@ -1,0 +1,168 @@
+:host {
+	max-width: 1128px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	margin-top: 24px;
+	background-color: white;
+	padding: 24px;
+	min-height: 738px;
+	border-radius: 10px;
+
+	--p-paginator-background: white;
+	--p-paginator-color: black;
+	--p-paginator-border-radius: 0;
+
+	--p-paginator-nav-button-border-radius: 10px;
+	--p-paginator-nav-button-background: #fff;
+	--p-paginator-nav-button-color: #1c1c1c;
+	--p-paginator-nav-button-hover-background: #ededed;
+	--p-paginator-nav-button-hover-color: var(--p-paginator-nav-button-color);
+
+	--p-paginator-nav-button-selected-background: #ededed;
+	--p-paginator-nav-button-selected-color: var(--p-paginator-nav-button-color);
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 36px;
+}
+
+.header-actions {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.crypto-select {
+	width: 300px;
+}
+
+table[tuiTable] {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+thead tr {
+	background-color: #f9f9f9;
+}
+
+tbody tr {
+	background-color: white;
+	cursor: pointer;
+}
+
+td,
+th {
+	border: none;
+	background-color: transparent;
+}
+
+tr {
+	border: 1px solid var(--tui-border-normal);
+	height: 70px;
+}
+
+tbody tr:hover {
+	background-color: #fafafa;
+}
+
+tui-icon {
+	width: 20px;
+	height: 20px;
+}
+
+.copy-icon {
+	cursor: pointer;
+	margin-left: 8px;
+}
+
+.button {
+	cursor: pointer;
+}
+
+::ng-deep .paginator .p-paginator {
+	border: 1px solid var(--tui-border-normal);
+	border-top: none;
+	justify-content: flex-end;
+}
+
+.paginator-button {
+	padding: 8px 12px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.address-wrapper {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	width: 370px;
+}
+
+.infinite-scroll {
+	overflow-y: auto;
+}
+
+.no-height {
+	height: 0px;
+	flex-grow: 0;
+}
+
+tui-loader {
+	color: #f6d52d;
+}
+th[tuiTh] {
+	font: var(--tui-font-h6-heading);
+	color: #272828;
+}
+
+@media only screen and (max-width: 575px) {
+	:host {
+		padding: 16px;
+		background-color: #fff;
+		border-radius: 10px;
+		margin: 24px 16px;
+		height: calc(var(--tui-viewport-height) - 48px - 74px);
+	}
+	.header {
+		display: grid;
+		grid-template-areas:
+			"a b"
+			"c c";
+	}
+
+	.h3-heading {
+		grid-area: a;
+		font-size: 26px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 40px;
+	}
+
+	.add-btn {
+		grid-area: b;
+	}
+
+	.header-actions {
+		grid-area: c;
+	}
+
+	.crypto-select {
+		width: 100%;
+		margin-top: 24px;
+	}
+
+	app-wallet-info-card + app-wallet-info-card {
+		margin-top: 24px;
+	}
+
+	cdk-virtual-scroll-viewport {
+		flex-grow: 1;
+		overflow-y: auto;
+	}
+}

@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+coverage
+
+.angular
+node_modules
+.vscode
+
+**/*.ts

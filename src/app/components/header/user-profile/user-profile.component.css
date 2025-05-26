@@ -1,0 +1,21 @@
+:host {
+  width: 504px;
+  display: block;
+}
+
+label {
+  color: var(--Secondary-text-color, #6f6f6f);
+}
+
+[tuiSwitch] {
+  --t-bg: black !important;
+}
+.button {
+  width: 100%;
+}
+
+@media only screen and (max-width: 575px) {
+  :host {
+    width: 100%;
+  }
+}

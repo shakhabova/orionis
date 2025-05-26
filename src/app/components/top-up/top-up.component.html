@@ -1,0 +1,60 @@
+<div class="h4-heading">{{ title() }}</div>
+
+@if (phase() === "select") {
+  <div class="text-sm w400 subtitle u-mar-bottom-32">
+    Choose a wallet to top up
+  </div>
+
+  <app-select-list
+    [items]="wallets$ | async"
+    [valueTemp]="listValueTemp"
+    [(selected)]="selected"
+  ></app-select-list>
+
+  <ng-template #listValueTemp let-item>
+    <img
+      class="crypto-icon"
+      [src]="getCryptoIcon(item?.cryptocurrency) | async"
+    />
+
+    <div class="crypto-name-wrapper">
+      <div class="text-m w600">
+        {{ getCryptoName(item?.cryptocurrency) | async }}
+      </div>
+      <div class="u-row-middle text-xs w400 wallet-sub-info">
+        <div>{{ item?.availableOprBalance }}</div>
+        &nbsp;
+        <div>{{ item?.cryptocurrency }}</div>
+      </div>
+    </div>
+  </ng-template>
+
+  <button
+    class="button primary m"
+    [disabled]="!selected()"
+    (click)="onContinue()"
+  >
+    Continue
+  </button>
+} @else if (phase() === "qr") {
+  <div class="qr-wrapper">
+    <img [src]="qrDataUrl()" width="200" />
+
+    <div class="u-row-middle u-mar-top-16">
+      <div class="address-text text-l w600">{{ selected()?.trxAddress }}</div>
+      <!-- <tui-icon
+        icon="@tui.clipboard-copy"
+        (click)="copyAddress()"
+        class="copy-icon"
+      ></tui-icon> -->
+      <app-copy-icon [text]="selected()?.trxAddress"></app-copy-icon>
+    </div>
+  </div>
+
+  @if (!context.data) {
+    <button class="button secondary m" (click)="toSelectPhase()">
+      <tui-icon icon="@tui.arrow-left"></tui-icon>
+      <span>Back</span>
+    </button>
+  }
+}

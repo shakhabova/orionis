@@ -1,0 +1,182 @@
+@use "sass:map";
+
+:root {
+  --Primary-text-color: #272828;
+  --Secondary-text-color: #6f6f6f;
+
+  --font-font-text-xs-400: normal 400 12px/16px "Nunito Sans";
+}
+
+.h1-heading {
+  color: var(--Primary-text-color, #272828);
+  /* Switzer/H1 */
+  font-family: Switzer-Variable;
+  font-size: 68px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80px;
+}
+.h2-heading {
+  color: var(--Primary-text-color, #272828);
+  font-family: Switzer-Variable;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 64px;
+}
+
+.h3-heading {
+  color: var(--Neutrals---primary-text-color, #272828);
+  /* Switzer/H3 */
+  font-family: Switzer-Variable;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.h4-heading {
+  color: var(--Neutrals---primary-text-color, #272828);
+  /* Switzer/H4 */
+  font-family: Switzer-Variable;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 153.846% */
+}
+
+.h5-heading {
+  color: var(--Primary-text-color, #272828);
+  /* Switzer/H5 */
+  font-family: Switzer-Variable;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.h6-heading {
+  color: var(--Primary-text-color, #272828);
+  font-family: Switzer-Variable;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+@mixin text {
+  color: var(--Primary-text-color, #272828);
+  font-family: "Nunito Sans";
+  font-style: normal;
+}
+
+$sizes: ("l": 18px, "m": 16px, "sm": 14px, "xs": 12px);
+$heightes: ("l": 24px, "m": 24px, "sm": 21px, "xs": 16px);
+$weightes: (600, 500, 400, 300, 200);
+
+@each $size-name, $size-px in $sizes {
+  @each $weight in $weightes {
+    .text-#{$size-name}-#{$weight} {
+      font: normal #{$weight} #{$size-px}/map.get($heightes, $size-name) "Nunito Sans" !important;
+      // --tui-font-text-s: normal #{$weight} #{$size-px}/map.get($heightes, $size-name) "Nunito Sans" !important;
+    }
+  }
+}
+
+// @mixin text-font($size, $line-height, $weight) {
+//   $font-size: 
+//   .text-#{$size}-#{$weight} {
+//     font: normal #{$weight} #{$size}/#{$line-height} "Nunito Sans";
+//   }
+// }
+
+// @include()
+
+.text {
+  &-l {
+    @include text;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &-m {
+    @include text;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &-sm {
+    @include text;
+    font-size: 14px;
+    line-height: 21px;
+
+    --tui-font-text-s: normal 14px/21px "Nunito Sans" !important;
+  }
+
+  &-xs {
+    @include text;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+.w600 {
+  font-weight: 600;
+}
+
+.w500 {
+  font-weight: 500;
+}
+
+.w400 {
+  font-weight: 400;
+}
+
+.w300 {
+  font-weight: 300;
+}
+.w200 {
+}
+
+@media only screen and (max-width: 575px) {
+  .h2-xs-heading {
+    color: var(--Primary-text-color, #272828);
+    font-family: Switzer-Variable;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 64px;
+  }
+
+  .h4-xs-heading {
+    color: var(--Neutrals---primary-text-color, #272828);
+    /* Switzer/H4 */
+    font-family: Switzer-Variable;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 153.846% */
+  }
+
+  .h5-xs-heading {
+    color: var(--Primary-text-color, #272828);
+    /* Switzer/H5 */
+    font-family: Switzer-Variable;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .h6-xs-heading {
+    color: var(--Primary-text-color, #272828);
+    font-family: Switzer-Variable;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+  }
+
+  .w-xs-300 {
+    font-weight: 300;
+  }
+}

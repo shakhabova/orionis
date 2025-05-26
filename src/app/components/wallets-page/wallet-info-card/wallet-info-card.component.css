@@ -1,0 +1,48 @@
+:host {
+	display: block;
+	height: 168px;
+}
+
+.wallet-container {
+	border-radius: 8px;
+	border: 0.5px solid var(--System-color-light-gray, #e9e9e9);
+	background: var(--Neutral100, #f7f7fb);
+
+	padding: 16px;
+}
+
+.wallet-container.is-blocked {
+	background: var(--System-color-light-red, #fff0f0);
+}
+
+.title-wrapper {
+	display: flex;
+	align-items: center;
+	margin-bottom: 24px;
+	gap: 8px;
+}
+
+.crypto-icon {
+	width: 40px;
+	height: 40px;
+}
+
+.crypto-name {
+	flex-grow: 1;
+}
+
+.crypto-balance {
+	margin-bottom: 24px;
+}
+
+.address-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.wallet-address {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 240px;
+}

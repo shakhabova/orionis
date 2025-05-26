@@ -1,0 +1,60 @@
+.transactions {
+  width: 744px;
+  height: 448px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.see-all {
+  color: var(--Primary500, #1c1c1c);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.16px;
+  cursor: pointer;
+}
+
+.day-group-title {
+  color: #6f6f6f;
+  margin-bottom: 8px;
+}
+
+.line {
+  width: calc(100% - 52px);
+  height: 1px;
+  background-color: #f7f7fb;
+  margin-left: 52px;
+}
+
+.empty-wrapper {
+  margin: 0 auto;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 16px;
+}
+
+.empty-desc {
+  color: #6f6f6f;
+  width: 360px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 575px) {
+  .transactions {
+    width: 100%;
+  }
+}

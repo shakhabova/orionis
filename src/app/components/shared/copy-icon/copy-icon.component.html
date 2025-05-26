@@ -1,0 +1,13 @@
+@if (text()) {
+  <tui-icon
+    icon="@tui.files"
+    (click)="copy($event)"
+    class="copy-icon"
+    [style.width.px]="width()"
+    [style.height.px]="height()"
+  ></tui-icon>
+  
+  @if (displaySuccess()) {
+    <div class="success-message text-xs w600">Copied!</div>
+  }
+}

@@ -1,0 +1,62 @@
+:host {
+	width: 440px;
+	display: block;
+}
+
+.crypto-icon {
+	width: 28px;
+	height: 28px;
+}
+
+.crypto-name-wrapper {
+	flex-grow: 1;
+}
+
+.subtitle,
+.wallet-sub-info {
+	color: #9999a2;
+}
+
+label {
+	color: #6f6f6f;
+	display: block;
+}
+
+.button {
+	width: 100%;
+}
+
+.copy-icon {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.address-wrapper img {
+	display: block;
+	margin: 0 auto;
+}
+
+.address-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	width: 226px;
+}
+
+tui-error {
+	font: var(--font-font-text-xs-400);
+}
+
+.button.red {
+	background-color: #e7170b;
+	border: 1px solid #d43a31;
+	color: white;
+}
+
+@media only screen and (max-width: 575px) {
+	:host {
+		width: 100%;
+	}
+}

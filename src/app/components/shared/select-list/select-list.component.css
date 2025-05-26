@@ -1,0 +1,40 @@
+.select-list {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-bottom: 32px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 520px;
+	width: 440px;
+}
+
+.item {
+	cursor: pointer;
+	height: 52px;
+	padding: 10px 12px;
+	width: 100%;
+
+	display: flex;
+	gap: 8px;
+	align-items: center;
+
+	border-radius: var(--Spacing-Radios-Radios-xs, 10px);
+	background: var(--System-color-bg, #f9f9f9);
+}
+
+.item.active {
+	border: 1px solid var(--Primary500, #1c1c1c);
+	background: #ededed;
+}
+
+.select-list .active-mark {
+	width: 24px;
+	height: 24px;
+}
+
+@media only screen and (max-width: 575px) {
+	.select-list {
+		width: 100%;
+	}
+}

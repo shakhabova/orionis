@@ -1,0 +1,185 @@
+.about {
+	position: relative;
+	background: var(--Primary500, #1c1c1c);
+	background-image: url("/assets/images/bg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	padding: 60px 10%;
+	text-align: center;
+	padding: 80px 10%;
+	color: #111;
+	overflow: hidden;
+
+	h2 {
+		margin-bottom: 15px;
+	}
+
+	.description {
+		max-width: 800px;
+		margin: 0 auto 40px auto;
+		color: #222;
+	}
+}
+
+/* Floating Crypto Icons */
+.crypto-icons {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.crypto-icon {
+	position: absolute;
+	width: 200px;
+	height: auto;
+}
+
+.bitcoin {
+	top: 0;
+	left: 10px;
+}
+
+.ethereum {
+	top: 150px;
+	left: -30px;
+}
+
+.polygon {
+	top: 300px;
+	left: -10px;
+}
+
+.h4-heading {
+	color: white;
+}
+
+.services {
+	background: var(--Primary500, #1c1c1c);
+	color: #fff;
+	text-align: center;
+	padding: 60px 10%;
+
+	h2 {
+		margin-bottom: 30px;
+	}
+
+	.services-container {
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		margin-top: 20px;
+	}
+
+	.service-card {
+		background: transparent;
+		border: 2px solid #fedd2d;
+		border-radius: 10px;
+		padding: 20px;
+		transition: all 0.3s ease-in-out;
+
+		h3 {
+			margin-bottom: 10px;
+		}
+
+		p {
+			color: #ccc;
+		}
+
+		&:hover {
+			background: rgba(254, 221, 45, 0.1);
+			transform: translateY(-5px);
+		}
+	}
+}
+.steps {
+	background: var(--Primary500, #1c1c1c);
+	color: #fff;
+	text-align: center;
+	padding: 60px 10%;
+
+	.steps-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		max-width: 1100px;
+		margin: 0 auto;
+		gap: 20px;
+	}
+
+	.step {
+		flex: 1;
+		text-align: left;
+		padding: 10px;
+	}
+
+	.step-number {
+		color: #fedd2d;
+	}
+
+	h3 {
+		margin-top: 5px;
+		color: #fff;
+	}
+
+	p {
+		color: #ccc;
+		margin-top: 10px;
+	}
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+	.steps-container {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.step {
+		text-align: center;
+	}
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+	.services-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+	.crypto-icon {
+		width: 60px;
+	}
+}
+
+@media (max-width: 768px) {
+	.about {
+		padding: 60px 5%;
+	}
+
+	.crypto-icons {
+		display: none; /* Hide icons on small screens */
+	}
+}
+
+@media (max-width: 575px) {
+	.about {
+		background-image: url("/assets/images/bg-mobile-about.png");
+		padding: 24px 16px;
+	}
+
+	.services {
+		padding: 60px 16px;
+	}
+
+	.services .services-grid {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,0 +1,51 @@
+<div class="title h5-heading">Verification code</div>
+
+<div class="subtitle text-sm w400">
+  Enter verification code we sent to the email address
+  <span class="text-sm w600">{{ contextEmail }}</span
+  >.
+</div>
+
+<app-otp-code-input
+  [(otpCode)]="otpCode"
+  [length]="codeLength"
+  [error]="!!errorMessage()"
+  [disabled]="loading()"
+></app-otp-code-input>
+
+@if (message() || errorMessage()) {
+  <div class="message" [class.error]="!!errorMessage()">
+    {{ message() || errorMessage() }}
+  </div>
+}
+@if (!codeExpired()) {
+  <tui-loader
+    class="loader"
+    [inheritColor]="true"
+    [overlay]="true"
+    [showLoader]="loading()"
+  >
+    <button
+      class="confirm-button button primary m"
+      [class.secondary]="isConfirmDisabled()"
+      [disabled]="isConfirmDisabled()"
+      (click)="confirm()"
+    >
+      Confirm
+    </button>
+  </tui-loader>
+} @else {
+  <button
+    [disabled]="loading()"
+    class="button secondary m resend-link"
+    (click)="resendCode()"
+  >
+    Resend code
+  </button>
+}
+@if (!codeExpired()) {
+  <div class="expires">
+    Verification code expires in
+    <span class="time">{{ expiresTimer$ | async }}</span>
+  </div>
+}

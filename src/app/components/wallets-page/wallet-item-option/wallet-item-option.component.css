@@ -1,0 +1,13 @@
+:host .more-button {
+	--tui-background-neutral-1: transparent;
+}
+
+tui-icon {
+	width: 20px;
+	height: 20px;
+}
+
+.wallet-option {
+	justify-content: flex-start !important;
+	gap: 8px;
+}

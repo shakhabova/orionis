@@ -1,0 +1,102 @@
+:host {
+	--tui-background-accent-1: #1c1c1c;
+	--tui-background-accent-1-hover: #1c1c1c;
+	--tui-text-primary-on-accent-1: rgba(254, 221, 45, 1);
+}
+
+.mobile-apps-qrs-wrapper {
+	display: flex;
+	gap: 24px;
+}
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 456px;
+	width: 100%;
+	text-align: center;
+}
+.qr {
+	width: 216px;
+	height: 216px;
+	border-radius: 16px;
+	box-shadow:
+		0px 9px 25px 0px rgba(0, 0, 0, 0.07),
+		0px 2.713px 7.537px 0px rgba(0, 0, 0, 0.05),
+		0px 1.127px 3.13px 0px rgba(0, 0, 0, 0.04),
+		0px 0.408px 1.132px 0px rgba(0, 0, 0, 0.02);
+}
+.qr-code-text-wrapper {
+	display: none;
+}
+
+.address-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	max-width: 264px;
+}
+.mfa-qr {
+	padding: 16px;
+}
+.subtitle {
+	color: var(--Secondary-text-color, #6f6f6f);
+	text-align: center;
+
+	margin: 24px 0;
+}
+
+.button {
+	width: 100%;
+}
+
+.mobile-app-name {
+	color: var(--Primary800, #000);
+	text-align: center;
+}
+
+.illustration img {
+	width: 160px;
+	height: 160px;
+	margin-top: 48px;
+	margin-bottom: 48px;
+}
+
+.mobile-links-subtitle {
+	color: var(--secondary-text-color);
+}
+
+.links {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.store-download {
+	width: 120px;
+	height: 40px;
+}
+
+.for-mobile {
+	display: none;
+}
+
+@media only screen and (max-width: 575px) {
+	.for-mobile {
+		display: block;
+	}
+	.for-desktop {
+		display: none;
+	}
+
+	.subtitle {
+		text-align: left;
+	}
+
+	.qr-code-text-wrapper {
+		display: flex;
+	}
+}

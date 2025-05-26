@@ -1,0 +1,11 @@
+.close-btn {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background-color: #f2f2f2;
+	border: none;
+	cursor: pointer;
+}

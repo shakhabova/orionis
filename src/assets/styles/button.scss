@@ -1,0 +1,199 @@
+.button {
+  display: flex;
+  gap: 8px;
+  padding: 16px 32px;
+  text-align: center;
+  font-family: Switzer-Regular;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--Spacing-Radios-Radios-xs, 10px);
+  cursor: pointer;
+
+  &.l {
+    padding: 16px 32px;
+  }
+
+  &.m {
+    padding: 12px 32px;
+  }
+
+  &.s {
+    padding: 8px 24px;
+    font-size: 14px;
+  }
+
+  &.xs {
+    padding: 8px 24px;
+    font-size: 12px;
+  }
+
+  &.primary {
+    color: var(--Secondary500, #fedd2d);
+    border: 1px solid var(--Primary500, #1c1c1c);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      var(--Primary500, #1c1c1c);
+    box-shadow:
+      0px -1px 0.5px 1px rgba(0, 0, 0, 0.32) inset,
+      0px 6px 4px -4px rgba(255, 255, 255, 0.32) inset,
+      0px 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
+
+    &[disabled] {
+      color: var(----neutral-300, #b6b6b6);
+      pointer-events: none;
+
+      border: 1px solid var(----neutral-200, #e0dfdf);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        var(----neutral-200, #e0dfdf);
+      box-shadow:
+        0px -1px 0.5px 1px rgba(0, 0, 0, 0.32) inset,
+        0px 6px 4px -4px rgba(255, 255, 255, 0.32) inset,
+        0px 1px 0px 1px rgba(255, 255, 255, 0.4) inset;
+    }
+
+    &:hover {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        var(--Primary700, #0e0d0d);
+    }
+
+    &:active {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        var(--Primary800, #000);
+    }
+
+    &:focus {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        var(--Primary500, #1c1c1c);
+    }
+  }
+
+  &.secondary {
+    color: var(--Primary500, #1c1c1c);
+    border: 1px solid #e5e7eb;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(26, 26, 26, 0.06) 0%,
+        rgba(26, 26, 26, 0) 100%
+      ),
+      var(--Neutral0, #fff);
+    box-shadow:
+      0px 1px 0px 1px rgba(255, 255, 255, 0.8) inset,
+      0px 6px 4px -4px rgba(255, 255, 255, 0.8) inset,
+      0px -2px 2px 0px rgba(18, 18, 18, 0.24) inset;
+
+    &[disabled] {
+      pointer-events: none;
+      color: var(--Neutral300, #b6b6b6);
+      border: 1px solid var(--Neutral200, #e0dfdf);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(26, 26, 26, 0.06) 0%,
+          rgba(26, 26, 26, 0) 100%
+        ),
+        var(--Neutral0, #fff);
+      box-shadow:
+        0px 1px 0px 1px rgba(255, 255, 255, 0.8) inset,
+        0px 6px 4px -4px rgba(255, 255, 255, 0.8) inset,
+        0px -2px 2px 0px rgba(18, 18, 18, 0.24) inset;
+    }
+
+    &:hover {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(26, 26, 26, 0.1) 0%,
+          rgba(26, 26, 26, 0) 100%
+        ),
+        var(--Neutral0, #fff);
+    }
+
+    &:active {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(26, 26, 26, 0.15) 0%,
+          rgba(26, 26, 26, 0) 100%
+        ),
+        var(--Neutral0, #fff);
+    }
+
+    &:focus {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(26, 26, 26, 0.06) 0%,
+          rgba(26, 26, 26, 0) 100%
+        ),
+        var(--Neutral0, #fff);
+    }
+  }
+}
+
+.fab {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #1c1c1c;
+  cursor: pointer;
+  border: none;
+
+  &.default {
+    background: var(--Text-White-Primary, #fff);
+  }
+}
+
+.modal-close-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 575px) {
+  .button {
+    &.xs-s {
+      padding: 8px 24px;
+      font-size: 14px;
+    }
+  }
+}

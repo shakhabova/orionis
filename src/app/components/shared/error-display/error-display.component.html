@@ -1,0 +1,9 @@
+<img src="assets/icons/warning-v2.png" />
+
+@if (text()) {
+  <div class="text-sm w600 u-mar-top-16">{{ text() }}</div>
+}
+
+@if (action()) {
+  <ng-container [ngTemplateOutlet]="action() ?? null"></ng-container>
+}

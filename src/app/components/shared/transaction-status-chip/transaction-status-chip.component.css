@@ -1,0 +1,31 @@
+.status {
+	display: inline-flex;
+	padding: var(--Spacing-Spacing-Spacing-xxs, 4px)
+		var(--Spacing-Spacing-Spacing-sm, 12px);
+	padding-top: 5px;
+	padding-bottom: 3px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	border-radius: 32px;
+	border: 1px solid var(--Primary100, #8d8b8b);
+	background: #b7b7b7;
+}
+
+.status.REJECTED {
+	border: 1px solid #fddcda;
+	background: var(--System-color-light-red, #fff0f0);
+	color: #e7170b;
+}
+
+.status.CONFIRMED {
+	border: 1px solid #cffcc7;
+	background: var(--System-color-light-red, #e9fff4);
+	color: #048d09;
+}
+
+.status.REFUNDED {
+	border: 1px solid rgba(65, 102, 230, 0.12);
+	background: rgba(65, 102, 230, 0.12);
+	color: #4166e6;
+}

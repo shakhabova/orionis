@@ -1,0 +1,26 @@
+<div class="h4-heading u-mar-bottom-32">
+  Are you sure you want to confirm withdraw?
+</div>
+
+<div class="u-row-middle u-space-between border-dashed-bottom u-pad-bottom-16">
+  <span class="label text-m w600">To wallet</span>
+  <span class="value text-m w600">{{ context.data.toTrxAddress }}</span>
+</div>
+
+<div class="u-row-middle u-space-between u-mar-top-16 u-mar-bottom-32">
+  <span class="label text-m w600">Amount</span>
+  <span class="value text-m w600"
+    >{{ context.data.amount }} {{ context.data.cryptocurrency }}</span
+  >
+</div>
+
+<div class="u-row-middle u-g-24">
+  <button class="button secondary m" (click)="context.completeWith(false)">
+    <tui-icon icon="@tui.arrow-left"></tui-icon>
+    Back
+  </button>
+
+  <button class="button primary m" (click)="context.completeWith(true)">
+    Yes
+  </button>
+</div>

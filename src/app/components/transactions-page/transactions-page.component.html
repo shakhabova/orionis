@@ -1,0 +1,199 @@
+@if (configService.isMobile()) {
+  <div class="header">
+    <div class="h3-heading">Transactions</div>
+
+    <button
+      tuiButton
+      appearance="secondary-grayscale"
+      type="button"
+      size="m"
+      (click)="openFilters()"
+      [class.active]="hasFilters()"
+    >
+      <tui-icon icon="@tui.filter"></tui-icon>
+    </button>
+  </div>
+  <div class="header-actions u-mar-bottom-24">
+    @if (!trxWalletAddress()) {
+      <app-top-up-withdraw-buttons
+        [fullWidth]="true"
+        (withdrawSuccess)="onWithdrawSuccess()"
+      />
+    }
+  </div>
+} @else {
+  <div class="header">
+    <div class="h3-heading">Transactions</div>
+
+    <div class="header-actions">
+      @if (!trxWalletAddress()) {
+        <app-top-up-withdraw-buttons (withdrawSuccess)="onWithdrawSuccess()" />
+      }
+    </div>
+  </div>
+}
+
+<div class="filters-wrapper u-mar-bottom-24">
+  <tui-textfield
+    iconStart="@tui.search"
+    tuiTextfieldSize="m"
+    class="search-input text-m w400"
+  >
+    <input
+      [formControl]="search"
+      placeholder="Search by transaction hash..."
+      tuiTextfield
+      size="m"
+    />
+  </tui-textfield>
+
+  @if (!configService.isMobile()) {
+    <button
+      tuiButton
+      appearance="secondary-grayscale"
+      type="button"
+      size="m"
+      (click)="openFilters()"
+      [class.active]="hasFilters()"
+    >
+      <tui-icon icon="@tui.filter"></tui-icon>
+    </button>
+  }
+</div>
+
+@if (!configService.isMobile() && transactions().length) {
+  <table tuiTable [columns]="columns">
+    <thead>
+      <tr tuiThGroup>
+        <th tuiTh >Time</th>
+        <th tuiTh>Transaction hash</th>
+        <th tuiTh>Wallet address</th>
+        <th tuiTh>Amount</th>
+        <th tuiTh>Status</th>
+        <th tuiTh>Type</th>
+      </tr>
+    </thead>
+
+    <tbody tuiTbody [data]="transactions()">
+      @for (transaction of transactions(); track transaction.id) {
+        <tr tuiTr (click)="openDetails(transaction)">
+          <td *tuiCell="'createdAt'" tuiTd>
+            <div class="text-m w600">
+              {{ transaction.createdAt | date: "dd.MM.yyyy" }}
+            </div>
+            <div class="transaction-time text-xs w400">
+              {{ transaction.createdAt | date: "hh:mm" }}
+            </div>
+          </td>
+
+          <td *tuiCell="'transactionHash'" tuiTd>
+            <div class="u-row-middle">
+              <span class="hash text-m w600">{{
+                transaction.transactionHash || "-"
+              }}</span>
+              <app-copy-icon [text]="transaction.transactionHash" />
+            </div>
+          </td>
+
+          <td *tuiCell="'address'" tuiTd>
+            <div class="u-row-middle">
+              <span class="address-wrapper text-m w600">{{
+                getAddress(transaction)
+              }}</span>
+              <app-copy-icon [text]="getAddress(transaction)" />
+            </div>
+          </td>
+
+          <td *tuiCell="'amount'" tuiTd>
+            <div class="u-row-middle u-g-12 text-m w600">
+              {{ getAmountPrefix(transaction) }}&nbsp;
+              {{ getAmount(transaction) | number: ".0-6" }}
+              <img [src]="getCryptoIcon(transaction) | async" width="24" />
+            </div>
+          </td>
+
+          <td *tuiCell="'status'" tuiTd>
+            <app-transaction-status-chip [status]="transaction.oprStatus" />
+          </td>
+
+          <td *tuiCell="'type'" tuiTd>
+            <span class="u-row-middle">
+              <app-transaction-type-icon [type]="transaction.type" />
+              <span class="u-mar-left-12">{{ transaction.type }}</span>
+            </span>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <p-paginator
+    class="paginator"
+    [totalRecords]="totalElements()"
+    [rows]="pageSize"
+    (onPageChange)="onPageChange($event)"
+    [showFirstLastIcon]="false"
+    [showPageLinks]="true"
+  >
+    <ng-template #previouspagelinkicon>
+      <span class="paginator-button">
+        <tui-icon icon="@tui.chevron-left"></tui-icon>
+        Back
+      </span>
+    </ng-template>
+
+    <ng-template #nextpagelinkicon>
+      <span class="paginator-button">
+        Next
+        <tui-icon icon="@tui.chevron-right"></tui-icon>
+      </span>
+    </ng-template>
+  </p-paginator>
+
+  @if (displayEmpty()) {
+    <app-empty-display
+      text="No transactions in your history? Your transaction history can be made today."
+    ></app-empty-display>
+  }
+
+  @if (displayError()) {
+    <app-error-display
+      text="Something went wrong while trying to load your transactions."
+    />
+  }
+} @else if (configService.isMobile()) {
+  @let mobileTransactions = mobileTransactions$ | async;
+  <cdk-virtual-scroll-viewport
+    itemSize="74"
+    appendOnly
+    [class.no-height]="
+      (isMobileEmpty() && !mobileTransactions?.length) || hasMobileError()
+    "
+  >
+    <app-transaction-item
+      *cdkVirtualFor="let transaction of mobileTransactions; trackBy: trackById"
+      [transaction]="transaction"
+      (click)="openDetails(transaction)"
+    ></app-transaction-item>
+  </cdk-virtual-scroll-viewport>
+
+  <tui-loader
+    [showLoader]="isMobileLoading() && !!mobileTransactions?.length"
+    [inheritColor]="true"
+  ></tui-loader>
+
+  @if (isMobileEmpty() && !mobileTransactions?.length) {
+    <app-empty-display
+      text="No transactions in your history? Your transaction history can be made today."
+    ></app-empty-display>
+  }
+
+  @if (hasMobileError()) {
+    <app-error-display
+      text="Something went wrong while trying to load your transactions."
+    />
+  }
+}
+
+@if (isLoading()) {
+  <app-loader></app-loader>
+}
