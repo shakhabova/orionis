@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "coinforge": {
+    "orionis": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/coinforge",
+            "outputPath": "dist/orionis",
             "allowedCommonJsDependencies": [
               "qrcode",
               "html2canvas",
@@ -77,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "coinforge:build:production"
+              "buildTarget": "orionis:build:production"
             },
             "development": {
-              "buildTarget": "coinforge:build:development"
+              "buildTarget": "orionis:build:development"
             }
           },
           "options": {
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "coinforge:build"
+            "buildTarget": "orionis:build"
           }
         },
         "test": {
