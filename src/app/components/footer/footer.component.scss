@@ -2,7 +2,7 @@
   background-color: var(--Primary500, #1c1c1c);
   color: #fff;
   text-align: center;
-  border-top: 1px solid #fedd2d;
+  border-top: 1px solid #00CFFF;
   padding: 60px;
   padding-bottom: 48px;
   padding-top: 104px;
@@ -57,7 +57,7 @@
         font-size: 1rem;
 
         &:hover {
-          color: #fedd2d;
+          color: #00CFFF;
         }
       }
     }
@@ -74,7 +74,7 @@
       transition: 0.3s ease-in-out;
 
       &:hover {
-        color: #fedd2d;
+        color: #00CFFF;
       }
     }
   }
@@ -89,7 +89,7 @@
     margin-top: 48px;
 
     hr {
-      border: 1px solid #fedd2d;
+      border: 1px solid #00CFFF;
     }
 
     .footer-bottom-text {
@@ -105,7 +105,7 @@
   text-decoration: none;
 
   &:hover {
-    color: #fedd2d;
+    color: #00CFFF;
   }
 }
 

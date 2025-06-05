@@ -28,10 +28,9 @@
 
 .mission {
   border-radius: 10px;
-  background: var(
-    --bg,
-    linear-gradient(242deg, #fedd2d 35.16%, #322c0c 159.67%)
-  );
+  background-image: url('/assets/images/mission_bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
   max-width: 1360px;
   height: 400px;
   margin: 40px auto;

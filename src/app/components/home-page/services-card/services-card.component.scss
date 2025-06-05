@@ -30,7 +30,7 @@
 .service-card {
   background: transparent;
   border-radius: 10px;
-  border: 3px solid var(--BG, #fedd2d);
+  border: 3px solid var(--BG, #00CFFF);
   padding: 20px;
   transition: all 0.3s ease-in-out;
 
@@ -46,7 +46,7 @@
   }
 
   &:hover {
-    background: rgba(254, 221, 45, 0.1);
+    background: rgba(0, 207, 255, 0.1);
     transform: translateY(-5px);
   }
 }

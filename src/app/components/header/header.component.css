@@ -31,7 +31,7 @@
 }
 
 .mobile-menu-toggle tui-icon {
-  color: #fedd2d;
+  color: #00CFFF;
 }
 
 .logo-img {
@@ -66,17 +66,17 @@
 }
 
 .nav-link:hover {
-  color: #fedd2d;
+  color: #00CFFF ;
 }
 
 .nav-link.active {
-  color: #fedd2d;
-  border-bottom: 2px solid #fedd2d;
+  color: #00CFFF ;
+  border-bottom: 2px solid #00CFFF;
 }
 .nav-link:hover .nav-icon,
 .nav-link.active .nav-icon {
-  filter: brightness(0) saturate(100%) invert(74%) sepia(68%) saturate(430%)
-    hue-rotate(1deg) brightness(100%) contrast(90%);
+  filter: invert(65%) sepia(96%) saturate(1046%) hue-rotate(161deg)
+  brightness(104%) contrast(105%);
 }
 
 .header__profile {
@@ -137,14 +137,14 @@
 }
 
 .mobile-nav-icon {
-  filter: invert(43%) sepia(8%) saturate(11%) hue-rotate(15deg) brightness(95%)
-    contrast(80%);
+  filter: invert(65%) sepia(96%) saturate(1046%) hue-rotate(161deg)
+  brightness(104%) contrast(105%);
 }
 
 .mobile-nav-link:hover .mobile-nav-icon,
 .mobile-nav-link.active .mobile-nav-icon {
-  filter: invert(8%) sepia(3%) saturate(14%) hue-rotate(350deg) brightness(104%)
-    contrast(93%);
+  filter: invert(65%) sepia(96%) saturate(1046%) hue-rotate(161deg)
+  brightness(104%) contrast(105%);
 }
 
 .button.s {

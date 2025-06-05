@@ -38,8 +38,9 @@
 .dashboard-banner {
   height: 204px;
   background-image: url("/assets/images/banner.png");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 575px) {
@@ -52,5 +53,9 @@
 
   .dashboard-banner {
     background-image: url("/assets/images/banner-mobile.png");
+    object-fit: contain;
+    background-position: center;
+    height: 150px;
+    border-radius: 5px;
   }
 }

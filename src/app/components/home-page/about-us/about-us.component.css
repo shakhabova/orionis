@@ -1,7 +1,7 @@
 .about {
 	position: relative;
 	background: var(--Primary500, #1c1c1c);
-	background-image: url("/assets/images/bg.png");
+	background-image: url("/assets/images/bg_about.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position-y: bottom;
@@ -78,7 +78,7 @@
 
 	.service-card {
 		background: transparent;
-		border: 2px solid #fedd2d;
+		border: 2px solid #00CFFF;
 		border-radius: 10px;
 		padding: 20px;
 		transition: all 0.3s ease-in-out;
@@ -92,7 +92,7 @@
 		}
 
 		&:hover {
-			background: rgba(254, 221, 45, 0.1);
+			background: rgba(0, 207, 255, 0.1);
 			transform: translateY(-5px);
 		}
 	}
@@ -119,7 +119,7 @@
 	}
 
 	.step-number {
-		color: #fedd2d;
+		color: #00CFFF;
 	}
 
 	h3 {

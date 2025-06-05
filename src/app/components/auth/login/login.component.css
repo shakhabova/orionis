@@ -24,7 +24,7 @@ label {
 .sign-in-btn {
 	width: 100%;
 	display: flex;
-	color: var(--Secondary500, #fedd2d);
+	color: var(--Secondary500, #00CFFF);
 	margin-top: 60px;
 	padding: var(--Spacing-Spacing-Spacing-sm, 12px) 32px;
 	justify-content: center;
