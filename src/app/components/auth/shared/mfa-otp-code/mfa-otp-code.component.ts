@@ -8,7 +8,7 @@ import { finalize, from } from 'rxjs';
 import { DialogService } from 'services/dialog.service';
 import { type AuthenticateResponse, LoginApiService } from 'services/login-api.service';
 import { OtpCodeInputComponent } from '../otp-code-input/otp-code-input.component';
-import { MfaApiService } from 'services/mfa-api.service';
+import { MfaApiService, SubmitResetMfaDto } from 'services/mfa-api.service';
 import { EmailOtpCodeComponent } from '../email-otp-code/email-otp-code.component';
 
 export interface MfaOtpModalData {
@@ -73,7 +73,7 @@ export class MfaOtpCodeComponent {
 	private showEmailOTPModal(): void {
 		const getRequest = (otp: string) => this.mfaService.submitResetMfa({ email: this.email, otp });
 
-		const otpDialog = this.tuiDialogs.open<string>(new PolymorpheusComponent(EmailOtpCodeComponent, this.injector), {
+		const otpDialog = this.tuiDialogs.open<SubmitResetMfaDto>(new PolymorpheusComponent(EmailOtpCodeComponent, this.injector), {
 			data: {
 				email: this.email,
 				requestGetter: getRequest,
@@ -88,7 +88,7 @@ export class MfaOtpCodeComponent {
 			}
 
 			this.router.navigateByUrl('/auth/mfa-connect', {
-				state: { mfaQR: result },
+				state: { mfaQR: result.qr, secret: result.secret },
 			});
 		});
 	}
